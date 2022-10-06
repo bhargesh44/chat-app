@@ -21,10 +21,11 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
       navigate("/login");
-  }, []);
+  }, [navigate]);
 
   const setProfilePicture = async () => {
     if (selectedAvatar === undefined) {
@@ -52,6 +53,7 @@ export default function SetAvatar() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const data = [];
     for (let i = 0; i < 4; i++) {
@@ -63,7 +65,7 @@ export default function SetAvatar() {
     }
     setAvatars(data);
     setIsLoading(false);
-  }, []);
+  }, [api]);
   return (
     <>
       {isLoading ? (
